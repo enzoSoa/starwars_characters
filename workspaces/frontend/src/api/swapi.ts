@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { Character, CharactersDTO } from "../types";
+import { FilmsDTO } from "../types";
 
 const baseUrl = 'https://swapi.dev/api/';
 
@@ -13,7 +14,10 @@ export const swapiApi = createApi({
         getCharactersByUrl: builder.query<Character, string>({
             query: url => url
         }),
+        getFilms: builder.query<FilmsDTO, void>({
+            query: () => `${baseUrl}films`
+        }),
     }),
 })
 
-export const { useGetCharactersQuery, useGetCharactersByUrlQuery } = swapiApi;
+export const { useGetCharactersQuery, useGetCharactersByUrlQuery, useGetFilmsQuery } = swapiApi;
