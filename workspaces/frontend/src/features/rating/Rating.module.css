@@ -1,0 +1,19 @@
+.starsList{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.starIcon{
+    fill: lightgrey;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.starIcon:is(:hover, [class~=active]), .starIcon:is(:hover, [class~=active]) ~ .starIcon {
+    fill: blue;
+}

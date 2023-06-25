@@ -1,5 +1,8 @@
 import { Card, Col, Placeholder } from "react-bootstrap";
 import { useGetCharactersByUrlQuery } from "../../api";
+import { useContext } from "react";
+import { UsernameContext } from "../../context";
+import { RatingComponent } from "../rating/Rating.component";
 
 type Props = {
     characterUrl: string
@@ -7,6 +10,7 @@ type Props = {
 
 export const CharacterCard = ({characterUrl}: Props) => {
     const {data: character, isFetching} = useGetCharactersByUrlQuery(characterUrl);
+    const {username} = useContext(UsernameContext);
     
     return character && !isFetching ?
         <Col>
@@ -19,6 +23,7 @@ export const CharacterCard = ({characterUrl}: Props) => {
                         height : {character.height}<br/>
                         mass : {character.mass}
                     </Card.Text>
+                    {!!username && <RatingComponent characterUrl={character.url}/>}
                 </Card.Body>
             </Card>
         </Col> :
