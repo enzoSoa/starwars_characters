@@ -1,4 +1,4 @@
-# Neoxia Test - Star Wars 
+# Star Wars 
 
 This project has been configured with node 18 and pnpm 8.6.1
 
